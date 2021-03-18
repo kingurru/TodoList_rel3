@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Todolist</title>
+<script defer src="bundle.js"></script></head>
+<body>
+<div class="flex-container">
+	<ul class="todolist green"></ul>
+	<ul class="todolist yellow"></ul>
+	<ul class="todolist red"></ul>
+</div>
+
+<form action="/" method="post">
+	<input type="text" aria-label="Описание задачи" placeholder="Например, уехать из страны"
+	       required>
+
+	<select name="task-priority" aria-label="Выбор приоритета задачи">
+		<option value="green">Обычная</option>
+		<option value="yellow">Важная</option>
+		<option value="red">Срочная</option>
+	</select>
+
+	<button type="submit">Добавить</button>
+</form>
+
+<template id="task-template">
+	<li class="todolist-item">
+		<label>
+			<input class="checkbox" type="checkbox">
+		</label>
+	</li>
+</template>
+
+</body>
+</html>
