@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    margin: 0 auto;
+}
+
+form {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+
+    padding-top: 20px;
+}
+
+.todolist {
+    min-height: 100px;
+    width: 30%;
+    border: 3px solid #000;
+}
