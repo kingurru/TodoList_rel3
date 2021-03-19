@@ -6,11 +6,6 @@
 	<title>Todolist</title>
 <script defer src="bundle.js"></script></head>
 <body>
-<div class="flex-container">
-	<ul class="todolist green"></ul>
-	<ul class="todolist yellow"></ul>
-	<ul class="todolist red"></ul>
-</div>
 
 <form action="/" method="post">
 	<input type="text" aria-label="Описание задачи" placeholder="Например, уехать из страны"
@@ -25,10 +20,18 @@
 	<button type="submit">Добавить</button>
 </form>
 
+<div class="flex-container">
+	<ul class="todolist green-box"></ul>
+	<ul class="todolist yellow-box"></ul>
+	<ul class="todolist red-box"></ul>
+</div>
+
+
 <template id="task-template">
 	<li class="todolist-item">
 		<label>
 			<input class="checkbox" type="checkbox">
+			<span></span>
 		</label>
 	</li>
 </template>
