@@ -1,15 +1,15 @@
-import greenTask from './columns/green'
-import yellowTask from './columns/yellow'
-import redTask from './columns/red'
-import {greenStore, yellowStore, redStore} from './columns/store'
-
-export class TaskItem {
+class TaskItem {
     constructor(tagName = 'li') {
         this.$item = document.createElement(tagName)
     }
+
+    hide() {
+        // this.$item.classList.add('hide')
+        this.$item.style.display = 'none'
+    }
 }
 
-class Task extends TaskItem {
+export default class Task extends TaskItem {
     constructor(name, box, tagName) {
         super(tagName)
         this.name = name
@@ -36,36 +36,7 @@ class Task extends TaskItem {
     info() {
         console.log(this)
     }
-
 }
-
-let task1 = new Task ('Помыть посуду', 'red' )
-let task2 = new Task ('Вынести мусор', 'yellow')
-task1.create()
-task2.create()
-
-
-
-
-//
-// export function createTask() {
-//     const taskName = document.querySelector('input[type="text"]').value
-//     const span = template.querySelector('span')
-//     span.textContent = taskName
-//     const task = template.cloneNode(true)
-//
-//     document.querySelector('input').value = ''
-// }
-//
-// function selectionBox() {
-//
-// }
-//
-// form.addEventListener('submit', function (event) {
-//     event.preventDefault()
-//     const textInput = document.querySelector('input[type="text"]').value
-//     createTask(textInput)
-// })
 
 
 
