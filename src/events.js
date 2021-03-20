@@ -2,23 +2,23 @@ import Task from './actions'
 export const green = []
 export const yellow = []
 export const red = []
-
 const store = {green, yellow, red}
+
 console.log(store)
 
 const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
 
 
-function selectedBox(nameTask) {
+function selectedBox(taskName) {
     for (let el of options) {
         if (el.selected) {
             let boxColor = el.value
-            if(store[boxColor].includes(nameTask)) {
+            if(store[boxColor].includes(taskName)) {
                 alert('Дубликат')
                 return
             }
-            store[boxColor].push(nameTask)
+            store[boxColor].push(taskName)
             console.log(store)
             return boxColor
         }
@@ -32,4 +32,3 @@ form.addEventListener('submit', function (event) {
     new Task(inputText.value, selectedBox(inputText.value)).create()
     inputText.value = ''
 })
-

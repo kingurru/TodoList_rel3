@@ -37,13 +37,3 @@ export default class Task extends TaskItem {
         console.log(this)
     }
 }
-
-
-
-// if (findDuplicate(inputText.value, greenStore) || findDuplicate(inputText.value, yellowStore) || findDuplicate(inputText.value, redStore)) {}
-
-
-// function findDuplicate(name, store) {
-//     const element = store.findIndex(el => el.name === name)
-//     return element > -1 ? true : false
-// }
