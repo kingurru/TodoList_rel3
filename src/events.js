@@ -1,4 +1,5 @@
 import Task from './actions'
+
 export const green = []
 export const yellow = []
 export const red = []
@@ -13,18 +14,17 @@ const options = document.querySelectorAll('option')
 function selectedBox(taskName) {
     for (let el of options) {
         if (el.selected) {
-            let boxColor = el.value
-            if(store[boxColor].includes(taskName)) {
-                alert('Дубликат')
-                return
+            for (let key in store) {
+                if (store[key].includes(taskName)) return alert('Дубликат')
             }
+
+            let boxColor = el.value
             store[boxColor].push(taskName)
             console.log(store)
             return boxColor
         }
     }
 }
-
 
 form.addEventListener('submit', function (event) {
     event.preventDefault()

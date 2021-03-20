@@ -1,1 +1,28 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Todolist</title><script defer="defer" src="bundle.js"></script></head><body><form action="/" method="post"><input aria-label="Описание задачи" placeholder="Например, уехать из страны" required> <select name="task-priority" aria-label="Выбор приоритета задачи"><option value="green">Обычная</option><option value="yellow">Важная</option><option value="red">Срочная</option></select> <button type="submit">Добавить</button></form><div class="flex-container"><ul class="todolist green"></ul><ul class="todolist yellow"></ul><ul class="todolist red"></ul></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Todolist</title>
+<script defer src="bundle.js"></script></head>
+<body>
+
+<form action="/" method="post">
+	<input type="text" aria-label="Описание задачи" placeholder="Например, уехать из страны"
+	       required>
+	<select name="task-priority" aria-label="Выбор приоритета задачи">
+		<option value="green">Обычная</option>
+		<option value="yellow">Важная</option>
+		<option value="red">Срочная</option>
+	</select>
+	<button type="submit">Добавить</button>
+</form>
+
+<div class="flex-container">
+	<ul class="todolist green"></ul>
+	<ul class="todolist yellow"></ul>
+	<ul class="todolist red"></ul>
+</div>
+
+</body>
+</html>
