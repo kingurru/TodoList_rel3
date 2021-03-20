@@ -31,6 +31,58 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"./node_modules/core-js/es6/in
 
 /***/ }),
 
+/***/ "./src/actions.js":
+/*!************************!*\
+  !*** ./src/actions.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _columns_green__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./columns/green */ \"./src/columns/green.js\");\n/* harmony import */ var _columns_green__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_columns_green__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _columns_yellow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./columns/yellow */ \"./src/columns/yellow.js\");\n/* harmony import */ var _columns_yellow__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_columns_yellow__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _columns_red__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./columns/red */ \"./src/columns/red.js\");\n/* harmony import */ var _columns_red__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_columns_red__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _columns_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./columns/store */ \"./src/columns/store.js\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n\n\n\n\nvar form = document.querySelector('form');\nvar options = document.querySelectorAll('option');\nvar template = document.querySelector('#task-template').content;\nvar greenBox = document.querySelector('.green-box');\nvar yellowBox = document.querySelector('.yellow-box');\nvar redBox = document.querySelector('.red-box');\n\nvar TaskItem = function TaskItem() {\n  var tagName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'li';\n\n  _classCallCheck(this, TaskItem);\n\n  this.$item = document.createElement(tagName);\n};\n\nvar Task = /*#__PURE__*/function (_TaskItem) {\n  _inherits(Task, _TaskItem);\n\n  var _super = _createSuper(Task);\n\n  function Task(name, box, tagName) {\n    _classCallCheck(this, Task);\n\n    return _super.call(this, tagName);\n  }\n\n  _createClass(Task, [{\n    key: \"create\",\n    value: function create() {\n      this.$checkbox = document.createElement(\"input\");\n      this.$checkbox.setAttribute(\"type\", \"checkbox\");\n      this.$text = document.createElement(\"span\");\n      this.$text.textContent = name;\n      this.$item.appendChild(this.$text);\n      this.$item.appendChild(this.$checkbox);\n    }\n  }, {\n    key: \"info\",\n    value: function info() {\n      console.log(this);\n      return this;\n    }\n  }]);\n\n  return Task;\n}(TaskItem);\n\nvar task1 = new Task('Помыть', 'Обычная').create().info();\nconsole.log(task1); //\n// export function createTask() {\n//     const taskName = document.querySelector('input[type=\"text\"]').value\n//     const span = template.querySelector('span')\n//     span.textContent = taskName\n//     const task = template.cloneNode(true)\n//\n//     document.querySelector('input').value = ''\n// }\n//\n// function selectionBox() {\n//\n// }\n//\n// form.addEventListener('submit', function (event) {\n//     event.preventDefault()\n//     const textInput = document.querySelector('input[type=\"text\"]').value\n//     createTask(textInput)\n// })\n// if (findDuplicate(inputText.value, greenStore) || findDuplicate(inputText.value, yellowStore) || findDuplicate(inputText.value, redStore)) {}\n// function findDuplicate(name, store) {\n//     const element = store.findIndex(el => el.name === name)\n//     return element > -1 ? true : false\n// }\n\n//# sourceURL=webpack://todolist/./src/actions.js?");
+
+/***/ }),
+
+/***/ "./src/columns/green.js":
+/*!******************************!*\
+  !*** ./src/columns/green.js ***!
+  \******************************/
+/***/ (() => {
+
+eval("\n\n//# sourceURL=webpack://todolist/./src/columns/green.js?");
+
+/***/ }),
+
+/***/ "./src/columns/red.js":
+/*!****************************!*\
+  !*** ./src/columns/red.js ***!
+  \****************************/
+/***/ (() => {
+
+eval("\n\n//# sourceURL=webpack://todolist/./src/columns/red.js?");
+
+/***/ }),
+
+/***/ "./src/columns/store.js":
+/*!******************************!*\
+  !*** ./src/columns/store.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"greenStore\": () => (/* binding */ greenStore),\n/* harmony export */   \"yellowStore\": () => (/* binding */ yellowStore),\n/* harmony export */   \"redStore\": () => (/* binding */ redStore)\n/* harmony export */ });\nvar greenStore = [];\nvar yellowStore = [];\nvar redStore = [];\n\n//# sourceURL=webpack://todolist/./src/columns/store.js?");
+
+/***/ }),
+
+/***/ "./src/columns/yellow.js":
+/*!*******************************!*\
+  !*** ./src/columns/yellow.js ***!
+  \*******************************/
+/***/ (() => {
+
+eval("\n\n//# sourceURL=webpack://todolist/./src/columns/yellow.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -38,7 +90,7 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"./node_modules/core-js/es6/in
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ \"./src/actions.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
 
 /***/ }),
 
@@ -3177,7 +3229,7 @@ eval("__webpack_require__(/*! ../modules/web.timers */ \"./node_modules/core-js/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n    margin: 0;\\n    padding: 0;\\n    box-sizing: border-box;\\n}\\n\\nform {\\n    width: 100%;\\n    display: block;\\n    margin: 100px auto;\\n}\\n\\n.flex-container {\\n    display: flex;\\n}\\n\\n.todolist {\\n    width: 200px;\\n\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todolist/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n    margin: 0;\\n    padding: 0;\\n    box-sizing: border-box;\\n    list-style-type: none;\\n}\\n\\nbody {\\n    width: 100vw;\\n    margin: 0 auto;\\n}\\n\\nform {\\n    padding-top: 30px;\\n    text-align: center;\\n}\\n\\nspan {\\n    user-select: none;\\n}\\n\\n.flex-container {\\n    display: flex;\\n    justify-content: space-around;\\n\\n    padding-top: 20px;\\n}\\n\\n.todolist {\\n    min-height: 100px;\\n    width: 30%;\\n}\\n\\n.green-box {\\n    border: 3px solid #0f0;\\n}\\n\\n.yellow-box {\\n    border: 3px solid #fb0;\\n}\\n\\n.red-box {\\n    border: 3px solid #f00;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todolist/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
