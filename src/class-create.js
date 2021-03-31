@@ -1,11 +1,12 @@
-class TaskItem {
+export class TaskItem {
     constructor(tagName = 'li') {
         this.$item = document.createElement(tagName)
     }
 
     hide() {
+        console.log('hide function')
         // this.$item.classList.add('hide')
-        this.$item.style.display = 'none'
+        // this.$item.style.display = 'none'
     }
 }
 
@@ -34,6 +35,6 @@ export default class Task extends TaskItem {
     }
 
     info() {
-        console.log(this)
+        console.log('Task created', this)
     }
 }

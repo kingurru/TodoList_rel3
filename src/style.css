@@ -1,44 +1,65 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
 }
 
 body {
-    width: 100vw;
-    margin: 0 auto;
+  width: 100vw;
+  margin: 0 auto;
 }
 
 form {
-    padding-top: 30px;
-    text-align: center;
+  padding-top: 30px;
+  text-align: center;
 }
 
 span {
-    user-select: none;
+  user-select: none;
 }
 
 .flex-container {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .todolist {
-    min-height: 100px;
-    width: 30%;
+  min-height: 100px;
+  width: 30%;
 }
 
 .green {
-    border: 3px solid #0f0;
+  border: 3px solid #0f0;
 }
 
 .yellow {
-    border: 3px solid #fb0;
+  border: 3px solid #fb0;
 }
 
 .red {
-    border: 3px solid #f00;
+  border: 3px solid #f00;
 }
+
+.title {
+  text-align: center;
+  user-select: none;
+}
+
+
+.hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+
+}
+

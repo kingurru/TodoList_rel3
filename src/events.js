@@ -1,34 +1,35 @@
-import Task from './actions'
+import Task from './class-create'
+import {selectedBox, toggleVisibilityBox, toggleVisibilityItem} from "./functions"
 
-export const green = []
-export const yellow = []
-export const red = []
-const store = {green, yellow, red}
-
-console.log(store)
-
+const store = {green: [], yellow: [], red: []}
 const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
+const titles = document.querySelectorAll('.title')
 
 
-function selectedBox(taskName) {
-    for (let el of options) {
-        if (el.selected) {
-            for (let key in store) {
-                if (store[key].includes(taskName)) return alert('Дубликат')
-            }
 
-            let boxColor = el.value
-            store[boxColor].push(taskName)
-            console.log(store)
-            return boxColor
-        }
-    }
-}
+
+console.log(titles)
+console.log(store)
+
+titles.forEach(title => title.addEventListener('click', function (event) {
+  toggleVisibilityBox(event.target.parentNode)
+}))
+
 
 form.addEventListener('submit', function (event) {
-    event.preventDefault()
-    const inputText = document.querySelector('input[type="text"]')
-    new Task(inputText.value, selectedBox(inputText.value)).create()
-    inputText.value = ''
+  event.preventDefault()
+  const inputText = document.querySelector('input[type="text"]')
+  new Task(inputText.value, selectedBox(inputText.value.trim())).create()
+  inputText.value = ''
 })
+
+document.body.addEventListener('change', function (event) {
+  if (event.target.checked) {
+    console.log(event.target.parentElement)
+    toggleVisibilityItem(event.target.parentElement)
+  }
+})
+
+export {store, form, options}
+
