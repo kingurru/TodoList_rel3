@@ -13,24 +13,21 @@ function addTask() {
 }
 
 function toggleVisibilityBox(box) {
-  let completedTasks = box.querySelectorAll('.check')
+  let checkedTasks = box.querySelectorAll('input:checked')
   let hideTasks = box.querySelectorAll('.hide')
-  console.log(completedTasks, hideTasks)
 
-  if (completedTasks.length) {
-    completedTasks.forEach(el => el.classList.add('hide'))
+  if (checkedTasks.length) {
+    checkedTasks.forEach(el => el.parentElement.parentElement.classList.add('hide'))
   }
-  if (completedTasks.length === hideTasks.length) {
-    completedTasks.forEach(el => el.classList.remove('hide'))
+  if (checkedTasks.length === hideTasks.length) {
+    checkedTasks.forEach(el => el.parentElement.parentElement.classList.remove('hide'))
   }
 }
-
 
 function selectBox() {
   for (let el of options) {
     if (el.selected) return el.value
   }
 }
-
 
 export {addTask, selectBox, toggleVisibilityBox}

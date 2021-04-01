@@ -15,11 +15,5 @@ form.addEventListener('submit', function (event) {
   console.log(store)
 })
 
-document.body.addEventListener('change', function (event) {
-  if (event.target.parentElement.parentElement.parentElement.tagName === 'UL') {
-    event.target.parentElement.parentElement.classList.toggle('check')
-  }
-})
-
 export {store, form, options}
 
