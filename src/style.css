@@ -27,7 +27,6 @@ span {
 }
 
 .todolist {
-  min-height: 100px;
   width: 30%;
 }
 
@@ -43,23 +42,34 @@ span {
   border: 3px solid #f00;
 }
 
+li {
+  margin: 5px;
+  padding: 5px;
+  height: 20px;
+  background-color: #fafafa;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+
+}
+
 .title {
+  line-height: 20px;
+  height: 30px;
   text-align: center;
   user-select: none;
 }
 
-
 .hide {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
   overflow: hidden;
-  white-space: nowrap;
+  height: 0;
+  margin: 0;
+  opacity: 0;
+  width: 0;
+  padding: 0;
   border: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
-
+  transition: all 0.3s ease-in-out;
 }
-

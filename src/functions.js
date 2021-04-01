@@ -1,27 +1,27 @@
-import {options, store} from "./events";
+import {options} from "./events";
 
-function toggleVisibilityBox (box) {
+function toggleVisibilityBox(box) {
   let tasks = box.querySelectorAll('.title ~ li')
-  tasks.forEach(li => li.classList.toggle('hide'))
+  tasks.forEach(el => {
+    if (el.classList.contains('hide')) {
+      el.classList.remove('hide')
+    } else {
+      el.classList.add('hide')
+    }
+  })
 }
 
 function toggleVisibilityItem(item) {
-  item.classList.toggle('hide')
+  if (item.classList.contains('hide')) {
+    item.classList.remove('hide')
+  } else {
+    item.classList.add('hide')
+  }
 }
 
-
-function selectedBox(taskName) {
+function selectedBox() {
   for (let el of options) {
-    if (el.selected) {
-      for (let key in store) {
-        if (store[key].includes(taskName)) return alert('Дубликат')
-      }
-
-      let boxColor = el.value
-      store[boxColor].push(taskName)
-      console.log(store)
-      return boxColor
-    }
+    if (el.selected) return el.value
   }
 }
 

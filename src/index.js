@@ -1,4 +1,4 @@
-import './class-create'
+import './constructor'
 import './events'
 import './style.css'
 
