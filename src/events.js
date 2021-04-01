@@ -15,10 +15,10 @@ form.addEventListener('submit', function (event) {
   event.preventDefault()
   const inputText = document.querySelector('input[type="text"]').value
 
-  if (Object.values(store).find((box, idx) => box.find(el => el.name === inputText))) {
+  if (Object.values(store).find((box) => box.find(el => el.name === inputText.trim()))) {
     return alert('Такая задача уже имеется в списке!')
   } else {
-    store[selectedBox(inputText.trim())].push(new Task(inputText, selectedBox(inputText.trim())).create())
+    store[selectedBox()].push(new Task(inputText.trim(), selectedBox()).create())
     document.querySelector('input[type="text"]').value = ''
   }
 
