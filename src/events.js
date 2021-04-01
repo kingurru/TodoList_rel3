@@ -1,5 +1,4 @@
-import Task from './constructor'
-import {selectedBox, toggleVisibilityBox, toggleVisibilityItem} from "./functions"
+import {addTask, toggleVisibilityBox, toggleVisibilityItem} from "./functions"
 
 const store = {green: [], yellow: [], red: []}
 const form = document.querySelector('form')
@@ -13,24 +12,13 @@ titles.forEach(title => title.addEventListener('click', function (event) {
 
 form.addEventListener('submit', function (event) {
   event.preventDefault()
-  const inputText = document.querySelector('input[type="text"]').value
-
-  if (Object.values(store).find((box) => box.find(el => el.name === inputText.trim()))) {
-    return alert('Такая задача уже имеется в списке!')
-  } else {
-    store[selectedBox()].push(new Task(inputText.trim(), selectedBox()).create())
-    document.querySelector('input[type="text"]').value = ''
-  }
-
+  addTask()
   console.log(store)
 })
 
 
 document.body.addEventListener('change', function (event) {
-  if (event.target.checked) {
-    console.log(event.target.parentElement.parentElement)
-    toggleVisibilityItem(event.target.parentElement.parentElement)
-  }
+  toggleVisibilityItem(event.target)
 })
 
 export {store, form, options}

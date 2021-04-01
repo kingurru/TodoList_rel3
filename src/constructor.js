@@ -1,14 +1,6 @@
-import {options} from "./events";
-
 export class TaskItem {
   constructor(tagName = 'li') {
     this.$item = document.createElement(tagName)
-  }
-
-  hide() {
-    console.log('hide function')
-    // this.$item.classList.add('hide')
-    // this.$item.style.display = 'none'
   }
 }
 
@@ -33,20 +25,11 @@ export default class Task extends TaskItem {
     this.$label.appendChild(this.$span)
     this.$box.appendChild(this.$item)
 
+    console.log('Create task')
     return this
   }
 
-  select() {
-    for (let el of options) {
-      if (el.selected) {
-        console.log(el.value)
-        return el.value
-      }
-    }
-  }
-
-
   info() {
-    console.log('Task created', this)
+    console.log('Information', this)
   }
 }
