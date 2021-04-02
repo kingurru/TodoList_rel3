@@ -21,6 +21,7 @@ span {
 
 
 img {
+  display: inline-block;
   float: right;
   width: 14px;
 }

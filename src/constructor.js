@@ -35,7 +35,7 @@ export default class Task extends TaskItem {
     return this
   }
 
-  delete() {
+  remove() {
     this.$item.remove()
     console.log('Delete task')
 }

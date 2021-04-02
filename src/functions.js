@@ -12,6 +12,10 @@ function addTask() {
   }
 }
 
+function removeTask() {
+
+}
+
 function toggleVisibilityBox(box) {
   let checkedTasks = box.querySelectorAll('input:checked')
   let hideTasks = box.querySelectorAll('.hide')

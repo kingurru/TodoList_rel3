@@ -4,16 +4,23 @@ const store = {green: [], yellow: [], red: []}
 const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
 const titles = document.querySelectorAll('.title')
+const buttonsRemove = document.body.getElementsByTagName('img')
 
 const test = document.querySelector('.test')
-
-test.addEventListener('click', (event) => {
-  console.log(store.green[0].delete())
-
+test.addEventListener('click', () => {
+  console.log(buttonsRemove)
 })
 
 
+document.body.addEventListener('click', (event) => {
+  if (event.target.tagName === 'IMG' && event.target.parentElement.firstChild.firstChild.checked) {
+    event.target.parentElement.remove()
+  }
+
+})
+
 titles.forEach(title => title.addEventListener('click', function (event) {
+
   toggleVisibilityBox(event.target.parentElement)
 }))
 
