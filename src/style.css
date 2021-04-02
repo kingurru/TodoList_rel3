@@ -26,6 +26,19 @@ img {
   width: 14px;
 }
 
+input:hover, label, button, .title {
+  cursor: pointer;
+}
+
+img {
+  user-select: none;
+}
+
+img:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
 .flex-container {
   display: flex;
   justify-content: space-around;
@@ -49,7 +62,6 @@ img {
 .red {
   border: 3px solid #f00;
 }
-
 
 .title {
   line-height: 20px;

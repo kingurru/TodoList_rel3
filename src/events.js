@@ -8,19 +8,23 @@ const buttonsRemove = document.body.getElementsByTagName('img')
 
 const test = document.querySelector('.test')
 test.addEventListener('click', () => {
-  console.log(buttonsRemove)
+  console.log(store)
 })
 
 
 document.body.addEventListener('click', (event) => {
   if (event.target.tagName === 'IMG' && event.target.parentElement.firstChild.firstChild.checked) {
     event.target.parentElement.remove()
-  }
 
+  }
 })
 
-titles.forEach(title => title.addEventListener('click', function (event) {
+document.body.addEventListener('dblclick', (event) => {
+  console.log(event.target.tagName)
+})
 
+
+titles.forEach(title => title.addEventListener('click', function (event) {
   toggleVisibilityBox(event.target.parentElement)
 }))
 
