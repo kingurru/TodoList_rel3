@@ -19,15 +19,22 @@ span {
   user-select: none;
 }
 
+
+img {
+  float: right;
+  width: 14px;
+}
+
 .flex-container {
   display: flex;
   justify-content: space-around;
-
+  flex-wrap: wrap;
   padding-top: 20px;
 }
 
 .todolist {
-  width: 30%;
+  min-width: 300px;
+  width: 33vw;
 }
 
 .green {
@@ -42,17 +49,6 @@ span {
   border: 3px solid #f00;
 }
 
-li {
-  margin: 5px;
-  padding: 5px;
-  height: 20px;
-  background-color: #fafafa;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  opacity: 1;
-  transition: all 0.3s ease-in-out;
-
-}
 
 .title {
   line-height: 20px;
@@ -61,15 +57,28 @@ li {
   user-select: none;
 }
 
+span {
+  margin-left: 10px;
+}
+
+li {
+  margin: 5px;
+  padding: 5px;
+  height: 25px;
+  background-color: #fafafa;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: all .4s ease-in-out;
+}
+
 .hide {
-  overflow: hidden;
   height: 0;
+  overflow: hidden;
   margin: 0;
-  opacity: 0;
-  width: 0;
   padding: 0;
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(100%);
-  transition: all 0.3s ease-in-out;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0;
+  transition: all .2s ease-in-out;
 }
