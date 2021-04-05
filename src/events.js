@@ -1,10 +1,9 @@
-import {addTask, toggleVisibilityBox} from "./functions"
+import {addTask, toggleVisibilityBox, updateLocalStorage} from "./functions"
 
 const store = {green: [], yellow: [], red: []}
 const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
 const titles = document.querySelectorAll('.title')
-const buttonsRemove = document.body.getElementsByTagName('img')
 
 const test = document.querySelector('.test')
 test.addEventListener('click', () => {
@@ -15,6 +14,7 @@ test.addEventListener('click', () => {
 document.body.addEventListener('click', (event) => {
   if (event.target.tagName === 'IMG' && event.target.parentElement.firstChild.firstChild.checked) {
     event.target.parentElement.remove()
+    updateLocalStorage()
 
   }
 })
@@ -31,7 +31,7 @@ titles.forEach(title => title.addEventListener('click', function (event) {
 form.addEventListener('submit', function (event) {
   event.preventDefault()
   addTask()
-  console.log(store)
+  // console.log(store)
 })
 
 export {store, form, options}

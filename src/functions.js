@@ -8,12 +8,13 @@ function addTask() {
     return alert('Такая задача уже имеется в списке!')
   } else {
     store[selectBox()].push(new Task(inputText.trim(), selectBox()).create())
+    updateLocalStorage()
     document.querySelector('input[type="text"]').value = ''
   }
 }
 
-function removeTask() {
-
+function updateLocalStorage() {
+  localStorage.setItem('store', JSON.stringify(store))
 }
 
 function toggleVisibilityBox(box) {
@@ -34,4 +35,4 @@ function selectBox() {
   }
 }
 
-export {addTask, selectBox, toggleVisibilityBox}
+export {addTask, selectBox, toggleVisibilityBox, updateLocalStorage}

@@ -35,11 +35,6 @@ export default class Task extends TaskItem {
     return this
   }
 
-  remove() {
-    this.$item.remove()
-    console.log('Delete task')
-}
-
   info() {
     console.log('Information', this)
   }
