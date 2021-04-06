@@ -16,7 +16,25 @@ function addTask() {
 }
 
 function updateLocalStorage() {
+  let checkedTasks = document.querySelectorAll('input:checked')
+  checkedTasks.forEach(el1 => {
+    let taskName = el1.nextElementSibling.textContent
+    for (let box in store) {
+      store[box].forEach(el2 => {
+        if (el2.name === taskName) {
+          el2.check = true
+
+
+          console.log(el2.check)
+        }
+      })
+    }
+  })
+
+
+
   localStorage.setItem('store', JSON.stringify(store))
+  console.log(store)
 }
 
 function toggleVisibilityBox(box) {

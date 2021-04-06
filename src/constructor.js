@@ -7,18 +7,11 @@ export class TaskItem {
 }
 
 export default class Task extends TaskItem {
-  constructor(name, box, tagName) {
+  constructor(name, box, check = false, tagName) {
     super(tagName)
     this.name = name
     this.box = box
-  }
-
-  add() {
-    this.$item.appendChild(this.$label)
-    this.$label.appendChild(this.$checkbox)
-    this.$label.appendChild(this.$span)
-    this.$item.appendChild(this.$img)
-    this.$box.appendChild(this.$item)
+    this.check = check
   }
 
   create() {
@@ -31,7 +24,6 @@ export default class Task extends TaskItem {
     this.$checkbox.setAttribute("type", "checkbox")
     this.$span = document.createElement("span")
     this.$span.textContent = this.name
-
 
     this.$item.appendChild(this.$label)
     this.$label.appendChild(this.$checkbox)

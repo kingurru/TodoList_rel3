@@ -8,16 +8,35 @@ const titles = document.querySelectorAll('.title')
 
 // const test = document.querySelector('.test')
 // test.addEventListener('click', () => {
-//
 // })
 
+
+window.addEventListener("unload", () => {
+  localStorage.setItem('store', JSON.stringify(store))
+})
+
 document.addEventListener("DOMContentLoaded", () => {
+
   const oldStore = JSON.parse(localStorage.getItem('store'))
-  for (let box in oldStore) {
-    oldStore[box].forEach(el => store[el.box].push(new Task(el.name, el.box).create()))
-  }
-  updateLocalStorage()
+
   console.log(store, oldStore)
+  for (let arrBox in oldStore) {
+    oldStore[arrBox].forEach(el => {
+
+      if (el.check) {
+        store[el.box].push(new Task(el.name, el.box, true).create())
+      } else
+        store[el.box].push(new Task(el.name, el.box).create())
+    })
+  }
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+  console.log(checkboxes)
+  checkboxes.forEach(el => console.log(el.checked))
+  updateLocalStorage()
+})
+
+document.body.addEventListener('change', () => {
+  updateLocalStorage()
 })
 
 document.body.addEventListener('click', (event) => {
@@ -45,6 +64,7 @@ titles.forEach(title => title.addEventListener('click', function (event) {
 form.addEventListener('submit', function (event) {
   event.preventDefault()
   addTask()
+  updateLocalStorage()
 })
 
 export {store, form, options}
