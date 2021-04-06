@@ -1,20 +1,26 @@
-import {addTask, toggleVisibilityBox, updateLocalStorage} from "./functions"
+import {addTask, selectBox, toggleVisibilityBox, updateLocalStorage} from "./functions"
+import Task from "./constructor";
 
 const store = {green: [], yellow: [], red: []}
 const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
 const titles = document.querySelectorAll('.title')
 
-const test = document.querySelector('.test')
-test.addEventListener('click', () => {
+// const test = document.querySelector('.test')
+// test.addEventListener('click', () => {
+//
+// })
 
-  console.log(store)
+document.addEventListener("DOMContentLoaded", () => {
+  const oldStore = JSON.parse(localStorage.getItem('store'))
+  for (let box in oldStore) {
+    oldStore[box].forEach(el => store[el.box].push(new Task(el.name, el.box).create()))
+  }
+  updateLocalStorage()
+  console.log(store, oldStore)
 })
 
-
 document.body.addEventListener('click', (event) => {
-
-  console.log()
   if (event.target.tagName === 'IMG' && event.target.parentElement.firstChild.firstChild.checked) {
     const taskName = event.target.previousSibling.childNodes[1].textContent
     const box = event.target.parentElement.parentElement.dataset.box
@@ -39,7 +45,6 @@ titles.forEach(title => title.addEventListener('click', function (event) {
 form.addEventListener('submit', function (event) {
   event.preventDefault()
   addTask()
-  // console.log(store)
 })
 
 export {store, form, options}

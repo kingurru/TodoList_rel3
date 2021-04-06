@@ -1,6 +1,8 @@
 import {options, store} from "./events";
 import Task from "./constructor";
 
+
+
 function addTask() {
   const inputText = document.querySelector('input[type="text"]').value
 
@@ -35,4 +37,4 @@ function selectBox() {
   }
 }
 
-export {addTask, selectBox, toggleVisibilityBox, updateLocalStorage, store}
+export {addTask, selectBox, toggleVisibilityBox, updateLocalStorage}

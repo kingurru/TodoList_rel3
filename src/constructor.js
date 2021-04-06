@@ -13,6 +13,14 @@ export default class Task extends TaskItem {
     this.box = box
   }
 
+  add() {
+    this.$item.appendChild(this.$label)
+    this.$label.appendChild(this.$checkbox)
+    this.$label.appendChild(this.$span)
+    this.$item.appendChild(this.$img)
+    this.$box.appendChild(this.$item)
+  }
+
   create() {
     this.$box = document.querySelector(`.${this.box}`)
 
