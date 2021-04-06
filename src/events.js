@@ -7,15 +7,23 @@ const titles = document.querySelectorAll('.title')
 
 const test = document.querySelector('.test')
 test.addEventListener('click', () => {
+
   console.log(store)
 })
 
 
 document.body.addEventListener('click', (event) => {
+
+  console.log()
   if (event.target.tagName === 'IMG' && event.target.parentElement.firstChild.firstChild.checked) {
+    const taskName = event.target.previousSibling.childNodes[1].textContent
+    const box = event.target.parentElement.parentElement.dataset.box
+
     event.target.parentElement.remove()
+    store[box].splice(store[box].indexOf(store[box].find(el => el.name === taskName)), 1)
     updateLocalStorage()
 
+    console.log(store)
   }
 })
 

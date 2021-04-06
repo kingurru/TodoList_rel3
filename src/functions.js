@@ -35,4 +35,4 @@ function selectBox() {
   }
 }
 
-export {addTask, selectBox, toggleVisibilityBox, updateLocalStorage}
+export {addTask, selectBox, toggleVisibilityBox, updateLocalStorage, store}
