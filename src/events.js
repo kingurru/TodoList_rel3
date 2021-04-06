@@ -1,4 +1,4 @@
-import {addTask, selectBox, toggleVisibilityBox, updateLocalStorage} from "./functions"
+import {addTask, toggleVisibilityBox, updateLocalStorage} from "./functions"
 import Task from "./constructor";
 
 const store = {green: [], yellow: [], red: []}
@@ -8,11 +8,20 @@ const titles = document.querySelectorAll('.title')
 
 // const test = document.querySelector('.test')
 // test.addEventListener('click', () => {
+//   const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+//   console.log('checkboxes', checkboxes)
+//   checkboxes.forEach(el => {
+//     if (el.checked) {
+//       console.log(el)
+//     }
+//   })
+//   // updateLocalStorage()
 // })
 
 
 window.addEventListener("unload", () => {
   localStorage.setItem('store', JSON.stringify(store))
+  updateLocalStorage()
 })
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,10 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         store[el.box].push(new Task(el.name, el.box).create())
     })
   }
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]')
-  console.log(checkboxes)
-  checkboxes.forEach(el => console.log(el.checked))
-  updateLocalStorage()
 })
 
 document.body.addEventListener('change', () => {
@@ -40,15 +45,13 @@ document.body.addEventListener('change', () => {
 })
 
 document.body.addEventListener('click', (event) => {
-  if (event.target.tagName === 'IMG' && event.target.parentElement.firstChild.firstChild.checked) {
-    const taskName = event.target.previousSibling.childNodes[1].textContent
+
+  if (event.target.tagName === 'IMG' && event.target.previousSibling.firstChild.checked) {
+    const taskName = event.target.previousSibling.lastChild.textContent
     const box = event.target.parentElement.parentElement.dataset.box
 
     event.target.parentElement.remove()
     store[box].splice(store[box].indexOf(store[box].find(el => el.name === taskName)), 1)
-    updateLocalStorage()
-
-    console.log(store)
   }
 })
 

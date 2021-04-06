@@ -2,7 +2,6 @@ import {options, store} from "./events";
 import Task from "./constructor";
 
 
-
 function addTask() {
   const inputText = document.querySelector('input[type="text"]').value
 
@@ -16,23 +15,16 @@ function addTask() {
 }
 
 function updateLocalStorage() {
-  let checkedTasks = document.querySelectorAll('input:checked')
-  checkedTasks.forEach(el1 => {
-    let taskName = el1.nextElementSibling.textContent
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]')
+  checkboxes.forEach(el1 => {
+    const taskName = el1.nextSibling.textContent
     for (let box in store) {
       store[box].forEach(el2 => {
-        if (el2.name === taskName) {
-          el2.check = true
-
-
-          console.log(el2.check)
-        }
+        if (el2.name === taskName && el1.checked) el2.check = true
+        else if (el2.name === taskName && !el1.checked) el2.check = false
       })
     }
   })
-
-
-
   localStorage.setItem('store', JSON.stringify(store))
   console.log(store)
 }

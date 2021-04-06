@@ -22,6 +22,9 @@ export default class Task extends TaskItem {
     this.$img.setAttribute("src", png)
     this.$checkbox = document.createElement("input")
     this.$checkbox.setAttribute("type", "checkbox")
+    if (this.check) {
+      this.$checkbox.setAttribute("checked", `${this.check}`)
+    }
     this.$span = document.createElement("span")
     this.$span.textContent = this.name
 
