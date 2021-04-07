@@ -1,4 +1,4 @@
-import {addTask, editTask, asd, toggleVisibilityBox, updateLocalStorage} from "./functions"
+import {addTask, editTask, toggleVisibilityBox, updateLocalStorage} from "./functions"
 import Task from "./constructor";
 
 const store = {green: [], yellow: [], red: []}

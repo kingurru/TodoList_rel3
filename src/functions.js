@@ -1,7 +1,6 @@
 import {options, store} from "./events";
 import Task from "./constructor";
 
-
 function addTask() {
   const inputText = document.querySelector('input[type="text"]').value
 
@@ -11,6 +10,16 @@ function addTask() {
     store[selectBox()].push(new Task(inputText.trim(), selectBox()).create())
     updateLocalStorage()
     document.querySelector('input[type="text"]').value = ''
+  }
+}
+
+function updateStore(newName) {
+
+  for (let box in store) {
+    store[box].forEach((item, idx) => {
+      if (item.name === localStorage.getItem('oldName'))
+        console.log(store[box][idx].name = newName)
+    })
   }
 }
 
@@ -26,15 +35,20 @@ function updateLocalStorage() {
     }
   })
   localStorage.setItem('store', JSON.stringify(store))
-  console.log(store)
+  // console.log(store)
 }
+
 
 function editTask(el) {
 
   let span = document.createElement('span')
-  let oldName = el.textContent
+  let oldName
   let newName
   let input
+  if (el.textContent) {
+    oldName = el.textContent
+    localStorage.setItem('oldName', oldName)
+  }
 
   if (el.tagName === 'SPAN') {
     input = document.createElement('input')
@@ -49,10 +63,8 @@ function editTask(el) {
   if (el.tagName === 'INPUT' && el.parentNode.tagName === 'LABEL' && el.classList.contains('task-name')) {
 
     if (el.value.trim()) {
-
       newName = el.value.trim()
-      console.log(newName)
-
+      updateStore(newName)
       span.textContent = el.value.trim()
       el.parentNode.replaceChild(span, el)
     }
@@ -62,15 +74,14 @@ function editTask(el) {
     input = document.querySelector('.task-name')
 
     if (input.value.trim()) {
-
       newName = input.value.trim()
-      console.log(newName)
-
+      updateStore(newName)
       span.textContent = input.value.trim()
       input.parentNode.replaceChild(span, input)
     }
   }
 }
+
 
 function toggleVisibilityBox(box) {
   let checkedTasks = box.querySelectorAll('input:checked')
