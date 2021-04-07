@@ -6,17 +6,10 @@ const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
 const titles = document.querySelectorAll('.title')
 
-// const test = document.querySelector('.test')
-// test.addEventListener('click', () => {
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]')
-//   console.log('checkboxes', checkboxes)
-//   checkboxes.forEach(el => {
-//     if (el.checked) {
-//       console.log(el)
-//     }
-//   })
-//   // updateLocalStorage()
-// })
+const test = document.querySelector('.test')
+test.addEventListener('click', () => {
+
+})
 
 
 window.addEventListener("unload", () => {
@@ -55,8 +48,25 @@ document.body.addEventListener('click', (event) => {
   }
 })
 
+
+
 document.body.addEventListener('dblclick', (event) => {
-  console.log(event.target.tagName)
+  if (event.target.tagName === 'SPAN') {
+    const input = document.createElement('input')
+    input.setAttribute('type', 'text')
+    input.style.marginLeft = '10px'
+    event.target.parentNode.replaceChild(input, event.target)
+    input.focus()
+  }
+
+  if (event.target.tagName === 'INPUT' && event.target.parentNode.tagName === 'LABEL') {
+    const span = document.createElement('span')
+
+    if (event.target.value.trim()) {
+      span.textContent = event.target.value.trim()
+      event.target.parentNode.replaceChild(span, event.target)
+    }
+  }
 })
 
 

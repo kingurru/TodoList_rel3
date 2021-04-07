@@ -26,7 +26,7 @@ img {
   width: 14px;
 }
 
-input:hover, label, button, .title {
+input[type="checkbox"]:hover, label, button, .title {
   cursor: pointer;
 }
 
