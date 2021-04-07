@@ -30,8 +30,11 @@ function updateLocalStorage() {
 }
 
 function editTask(el) {
+
+  let span = document.createElement('span')
+  let oldName = el.textContent
+  let newName
   let input
-  let span
 
   if (el.tagName === 'SPAN') {
     input = document.createElement('input')
@@ -43,9 +46,13 @@ function editTask(el) {
     input.focus()
   }
 
-  if (el.tagName === 'INPUT' && el.parentNode.tagName === 'LABEL') {
-    span = document.createElement('span')
+  if (el.tagName === 'INPUT' && el.parentNode.tagName === 'LABEL' && el.classList.contains('task-name')) {
+
     if (el.value.trim()) {
+
+      newName = el.value.trim()
+      console.log(newName)
+
       span.textContent = el.value.trim()
       el.parentNode.replaceChild(span, el)
     }
@@ -53,8 +60,12 @@ function editTask(el) {
 
   if (el === 'Enter') {
     input = document.querySelector('.task-name')
-    span = document.createElement('span')
+
     if (input.value.trim()) {
+
+      newName = input.value.trim()
+      console.log(newName)
+
       span.textContent = input.value.trim()
       input.parentNode.replaceChild(span, input)
     }
