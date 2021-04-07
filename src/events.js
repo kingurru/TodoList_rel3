@@ -1,4 +1,4 @@
-import {addTask, toggleVisibilityBox, updateLocalStorage} from "./functions"
+import {addTask, editTask, asd, toggleVisibilityBox, updateLocalStorage} from "./functions"
 import Task from "./constructor";
 
 const store = {green: [], yellow: [], red: []}
@@ -6,9 +6,9 @@ const form = document.querySelector('form')
 const options = document.querySelectorAll('option')
 const titles = document.querySelectorAll('.title')
 
+
 const test = document.querySelector('.test')
 test.addEventListener('click', () => {
-
 })
 
 
@@ -18,9 +18,7 @@ window.addEventListener("unload", () => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const oldStore = JSON.parse(localStorage.getItem('store'))
-
   console.log(store, oldStore)
   for (let arrBox in oldStore) {
     oldStore[arrBox].forEach(el => {
@@ -49,23 +47,14 @@ document.body.addEventListener('click', (event) => {
 })
 
 
-
 document.body.addEventListener('dblclick', (event) => {
-  if (event.target.tagName === 'SPAN') {
-    const input = document.createElement('input')
-    input.setAttribute('type', 'text')
-    input.style.marginLeft = '10px'
-    event.target.parentNode.replaceChild(input, event.target)
-    input.focus()
-  }
+  editTask(event.target)
+})
 
-  if (event.target.tagName === 'INPUT' && event.target.parentNode.tagName === 'LABEL') {
-    const span = document.createElement('span')
-
-    if (event.target.value.trim()) {
-      span.textContent = event.target.value.trim()
-      event.target.parentNode.replaceChild(span, event.target)
-    }
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    console.log(event.key)
+    editTask(event.key)
   }
 })
 
