@@ -8,9 +8,13 @@ module.exports = {
         path: __dirname + '/dist',
         filename: 'bundle.js'
     },
+    mode: "production",
     devServer: {
         contentBase: __dirname + '/dist',
-        port: 9191
+        open: true,
+        compress: true,
+        hot: true,
+        port: 3131
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -36,6 +40,14 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
             },
         ]
     }

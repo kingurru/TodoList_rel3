@@ -1,4 +1,4 @@
-import './actions'
+import './constructor'
 import './events'
 import './style.css'
 
