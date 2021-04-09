@@ -7,14 +7,15 @@ function addTask() {
   if (Object.values(store).find((box) => box.find(el => el.name === inputText.trim()))) {
     return alert('Такая задача уже имеется в списке!')
   } else {
-    store[selectBox()].push(new Task(inputText.trim(), selectBox()).create())
-    updateLocalStorage()
-    document.querySelector('input[type="text"]').value = ''
+    if (inputText.trim().length > 0) {
+      store[selectBox()].push(new Task(inputText.trim(), selectBox()).create())
+      updateLocalStorage()
+      document.querySelector('input[type="text"]').value = ''
+    }
   }
 }
 
 function updateStore(newName) {
-
   for (let box in store) {
     store[box].forEach((item, idx) => {
       if (item.name === localStorage.getItem('oldName'))
@@ -35,12 +36,10 @@ function updateLocalStorage() {
     }
   })
   localStorage.setItem('store', JSON.stringify(store))
-  // console.log(store)
 }
 
 
 function editTask(el) {
-
   let span = document.createElement('span')
   let oldName
   let newName
@@ -61,7 +60,6 @@ function editTask(el) {
   }
 
   if (el.tagName === 'INPUT' && el.parentNode.tagName === 'LABEL' && el.classList.contains('task-name')) {
-
     if (el.value.trim()) {
       newName = el.value.trim()
       updateStore(newName)
@@ -72,7 +70,6 @@ function editTask(el) {
 
   if (el === 'Enter') {
     input = document.querySelector('.task-name')
-
     if (input.value.trim()) {
       newName = input.value.trim()
       updateStore(newName)
